@@ -1,0 +1,89 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<h1>Lista/Gerenciador de tarefas</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Tarefas/trabalho</th>
+        <th>Status</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody id="task-list">
+        {% for tarefa in lista_de_tarefas %}
+            <tr>
+              <td>{{ tarefa[0] }}</td>
+              <td>{{ tarefa[1] }}</td>
+              <td>
+                <form method="post" action="{{ url_for('excluir_termo', termo_id=loop.index-1) }}">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+              </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="add-task-form tarefa-form">
+    <form id="add-task-form" action="{{ url_for('criar_tarefa')}}" method="post">
+      <input type="text" id="task" name="tarefa" placeholder="Sua tarefa/trabalho:" required />
+      <input type="submit" value="Adicionar">
+    </form>
+  </div>
+
+  <script>
+
+    const taskList = document.getElementById('task-list');
+    const addTaskForm = document.getElementById('add-task-form');
+
+    addTaskForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const taskInput = document.getElementById('task');
+      const taskText = taskInput.value.trim();
+
+      if (taskText !== '') {
+        addTask(taskText);
+        taskInput.value = '';
+      }
+    });
+
+    function addTask(taskText) {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${taskText}</td>
+        <td>
+          <button onclick="editTask(this)" class='teste2'>Editar</button>
+          <button onclick="deleteTask(this)" class='teste'>Excluir</button>
+        </td>
+        <td><input type="checkbox" class="status-checkbox" onchange="toggleStatus(this)"></td>
+      `
+        ;
+
+
+      taskList.appendChild(row);
+    }
+
+    function editTask(button) {
+      const row = button.parentNode.parentNode;
+      const taskText = row.querySelector('td:first-child').innerText;
+      const updatedTaskText = prompt('Editar:', taskText);
+
+      if (updatedTaskText !== null && updatedTaskText.trim() !== '') {
+        row.querySelector('td:first-child').innerText = updatedTaskText;
+      }
+
+    }
+
+    function deleteTask(button) {
+      const row = button.parentNode.parentNode;
+      taskList.removeChild(row);
+    }
+
+    function toggleStatus(checkbox) {
+      const row = checkbox.parentNode.parentNode;
+      row.classList.toggle('completo', checkbox.checked);
+    }
+  </script>
+{% endblock %}

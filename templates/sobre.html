@@ -1,0 +1,36 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<div class="participants">
+    <div class="participant">
+        <div class="zoom-wrapper">
+            <img src="{{ url_for('static', filename='imgs/Milleyd.jpeg') }}" alt="Milleyd">
+        </div>
+        <h2>Milleyd Nascimento</h2>
+        <h3>Dev Backend</h3>
+    </div>
+
+    <div class="participant">
+        <div class="zoom-wrapper">
+            <img src="{{ url_for('static', filename='imgs/Lucca.jpeg') }}" alt="Lucas">
+        </div>
+        <h2>Lucas Emanuel</h2>
+        <h3>Dev Frontend</h3>
+    </div>
+
+    <div class="participant">
+        <div class="zoom-wrapper">
+            <img src="{{ url_for('static', filename='imgs/jack.jpeg') }}" alt="Jackson">
+        </div>
+        <h2>Jackson Soares</h2>
+        <h3>Dev Github e Backend</h3>
+    </div>
+
+    <div class="participant">
+        <div class="zoom-wrapper">
+            <img src="{{ url_for('static', filename='imgs/Lili.jpeg') }}" alt="Maurelline">
+        </div>
+        <h2>Maurelline Costa</h2>
+        <h3>Dev Scrum Master e Frontend</h3>
+    </div>
+</div>
+{% endblock %}

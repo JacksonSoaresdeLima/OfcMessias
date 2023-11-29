@@ -1,0 +1,231 @@
+body{
+    font-family: Kumbh Sans;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.menu {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 8px 24px;
+
+}
+
+.links-menu {
+
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+li a{
+    text-decoration: none;
+    position: relative;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    color: gray;
+}
+
+li a:after{
+    content: "";
+    position: absolute;
+    transition: 0.4s;
+    background-color: #ffbf00;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+}
+
+li a:hover{
+    color: #fcd04f;
+}
+
+li a:hover:after{
+    width: 100%;
+}
+
+
+
+input{
+    width: 270px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+    font-size: 20px;
+}
+
+hr{
+    height: 2px;
+    width: 1020px;
+    border: none;
+    background-color: hsla(0, 2%, 88%, 0.541);
+    margin-left: 15px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #ffbf00;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.add-task-form {
+    width: 80%;
+    margin: 20px auto;
+    font-family: sans-serif;
+}
+
+.add-task-form input[type="text"] {
+    width: 20%;
+    padding: 8px;
+}
+
+.add-task-form input[type="text"]:nth-child(2) {
+    width: 50%;
+}
+
+.add-task-form.tarefa-form input[type="text"] {
+    width: 75%
+}
+
+.add-task-form input[type="submit"] {
+    width: 20%;
+    padding: 8px;
+    background-color: #ffbf00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+}
+
+.status-checkbox {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    background-color: #ffbf00;
+
+}
+
+.status-checkbox:hover {
+background-color:#ffbf00;
+transition: 0.3s;
+cursor:pointer;
+}
+
+.teste {
+    border: none;
+    background-color: #fcd04f;
+    width: 90px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: black;
+}
+.teste:hover{
+    background-color:#ffbf00;
+    transition: 0.3s;
+    cursor:pointer;
+}
+
+
+.teste2 {
+    border: none;
+    background-color: #fcd04f;
+    width: 90px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: black;
+}
+.teste2:hover{
+    background-color:#ffbf00;
+    transition: 0.3s;
+    cursor:pointer;
+}
+
+.participants {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 48px;
+}
+
+.participant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+    margin-bottom: 32px;
+}
+
+.participant h2 {
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+.participant h3 {
+    margin-top: 0px;
+    color: #ffbf00;
+}
+
+.zoom-wrapper {
+    height: 200px;
+    width: 140px;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor:pointer;
+}
+.zoom-wrapper img {
+    object-fit: cover;
+    transition: transform 400ms ease-out;
+    height: 100%;
+}
+.zoom-wrapper:hover img {
+    transform: scale(1.1);
+}
+hr {
+    width: 160px;
+}

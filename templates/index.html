@@ -1,0 +1,35 @@
+{% extends "modelo.html" %}
+{% block conteudo %}
+<h1>Glossário</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Termo</th>
+        <th>Definição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="task-list">
+        {% for termo in glossario_de_termos %}
+            <tr>
+              <td>{{ termo[0] }}</td>
+              <td>{{ termo[1] }}</td>
+              <td>
+                <form method="post" action="{{ url_for('excluir_termo', termo_id=loop.index-1) }}">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+              </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="add-task-form">
+    <form id="add-task-form" action="{{ url_for('criar_termo')}}" method="post">
+        <input type="text" id="task" name="termo" placeholder="Termo" required />
+        <input type="text" id="definicao" name="definicao" placeholder="Definição" required />
+        <input type="submit" value="Adicionar" />
+    </form>
+</div>
+{% endblock %}
